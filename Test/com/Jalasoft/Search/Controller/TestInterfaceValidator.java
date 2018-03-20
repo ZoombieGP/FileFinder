@@ -2,13 +2,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class TestPathValidator {
+public class TestInterfaceValidator {
 
     @Test
     public void isAValidPath(){
         String path = "\\\\server\\shared\\Test.txt";
 
-        PathValidator pathTest = new PathValidator();
+        InterfaceValidator pathTest = new InterfaceValidator();
 
         assertTrue(pathTest.isValidPath(path));
 
@@ -18,7 +18,7 @@ public class TestPathValidator {
     public void isNotAValidPath(){
         String path = "C:\\SomeFilePatt|\\\\SomeServer\\SomeShare";
 
-        PathValidator pathTest = new PathValidator();
+        InterfaceValidator pathTest = new InterfaceValidator();
 
         assertFalse(pathTest.isValidPath(path));
 
@@ -28,7 +28,7 @@ public class TestPathValidator {
     public void fileNameIsValid(){
         String fileName = "file.txt";
 
-        PathValidator pathTest = new PathValidator();
+        InterfaceValidator pathTest = new InterfaceValidator();
 
         assertTrue(pathTest.isValidFileName(fileName));
 
@@ -38,7 +38,7 @@ public class TestPathValidator {
     public void fileNameIsNotValid(){
         String fileName = ">SomeShare";
 
-        PathValidator pathTest = new PathValidator();
+        InterfaceValidator pathTest = new InterfaceValidator();
 
         assertFalse(pathTest.isValidFileName(fileName));
 
