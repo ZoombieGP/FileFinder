@@ -12,30 +12,33 @@ public class InterfaceValidator {
     String regexFileName;
 
     /**
-     * Constructor
-     *
+     * InterfaceValidator Constructor
+     * Inicialize the regular expressions
      */
     public InterfaceValidator(){
         regexPath="^([a-zA-Z]\\:|\\\\\\\\[^\\/\\\\:*?\"<>|]+\\\\[^\\/\\\\:*?\"<>|]+)(\\\\[^\\/\\\\:*?\"<>|]+)+(\\.[^\\/\\\\:*?\"<>|]+)$"; // Contents the regular expression to validate file path
         regexFileName="^[^ \\\\/:*?\"\"<>|]+([ ]+[^ \\\\/:*?\"\"<>|]+)*$"; // Contents the regular expression to validate a file name
     }
+
     /**
      * Validate if the text is a valid file path
-     * @param filePath
-     * @return
+     * @param filePath String The file path got of the UI
+     * @return boolean true if the file path is valid and false if not
      */
     public boolean isValidPath(String filePath){
         return patternValidator(filePath, Pattern.compile(regexPath), "Invalid path", "Valid path");
 
     }
+
     /**
      * Validate if the text is a valid file name
-     * @param fileName
-     * @return
+     * @param fileName String The file name got of the UI
+     * @return boolean true if the file name is valid and false if not
      */
     public boolean isValidFileName(String fileName){
         return patternValidator(fileName, Pattern.compile(regexFileName), "Invalid name", "Valid name");
     }
+
     /**
      *
      * @param textToEvaluate This contents the text to evaluate
@@ -57,3 +60,4 @@ public class InterfaceValidator {
     }
 
 }
+
